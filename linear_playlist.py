@@ -19,6 +19,9 @@ class LinearPlaylistAPI:
             json_response = response.json()
             print("Created playlist Response: ")
             print(json.dumps(json_response, indent=2))
+            if not json_response.get('id'):
+                print("No id found in create response - Unexpected")
+                return None
             return json_response['id']
 
     def update_linear_playlist(self, plid, playlist_string, description, repeat, break_duration, skip_token,
@@ -87,7 +90,7 @@ class LinearPlaylistAPI:
             print('No reponse - Assuming success')
             return False
         status_remnant = response.status_code - 200
-        if 99 > status_remnant > 0:
+        if 99 >= status_remnant >= 0:
             # 2xx error code, we have success
             return False
         json_response = response.json()
