@@ -16,7 +16,7 @@ ENV NEXUS_POSTFIX=${NEXUS_POSTFIX}
 
 COPY ./requirements.txt /tmp/requirements.txt
 
-RUN ["/bin/bash","-c","pip3 install --index-url https://nexus$NEXUS_POSTFIX.uplynk-inf.aws.oath.cloud/repository/uplynk-pypi-group/simple -r /tmp/requirements.txt --timeout 600 --no-cache"]
+RUN ["/bin/bash","-c","pip3 install -r /tmp/requirements.txt --timeout 600 --no-cache"]
 
 COPY *.py /scripts/
 WORKDIR /scripts

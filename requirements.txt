@@ -1,2 +1,1 @@
-Bag>=200207.30
 requests[security]==2.26.0
