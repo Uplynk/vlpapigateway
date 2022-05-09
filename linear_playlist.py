@@ -7,7 +7,7 @@ from api_auth import APICredentials, APIParams, Signer
 
 class LinearPlaylistAPI:
     def __init__(self):
-        self.host = "http://services.uplynk.com"
+        self.host = "https://services.uplynk.com"
 
     def create_linear_playlist(self, playlist_string, description, repeat, break_duration, skip_token, addslatefill,
                                active, drm_required):
